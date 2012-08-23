@@ -173,7 +173,8 @@
   if (_postDataEncoding != aPostDataEncoding) {
     [self willChangeValueForKey:@"postDataEncoding"];
     _postDataEncoding = aPostDataEncoding;
-    
+    [self didChangeValueForKey:@"postDataEncoding"];
+  }
     NSString *charset = (__bridge NSString *)CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(self.stringEncoding));
     
     switch (self.postDataEncoding) {
@@ -207,8 +208,6 @@
       default:
         break;
     }
-    [self didChangeValueForKey:@"postDataEncoding"];
-  }
 }
 
 -(NSString*) encodedPostDataString {
